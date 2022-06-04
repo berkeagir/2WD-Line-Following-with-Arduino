@@ -1,0 +1,94 @@
+int ENA = 9; // for speed controls of motors
+int IN1 = 13;
+int IN2 = 12;
+
+int ENB = 3; 
+int IN3 = 8;
+int IN4 = 7;
+
+
+#define ENASpeed 120  // setting the speed of motors as 120
+#define ENBSpeed 120
+
+int Sensor1 = 0; //initial values of sensors are 0.
+int Sensor2 = 0;
+int Sensor3 = 0;
+int Sensor4 = 0;
+
+void setup() {
+
+  pinMode(ENA, OUTPUT);
+  pinMode(IN1, OUTPUT); 
+  pinMode(IN2, OUTPUT);
+
+  pinMode(ENB, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+
+  pinMode(Sensor1, INPUT); 
+  pinMode(Sensor2, INPUT);
+  pinMode(Sensor3, INPUT);
+  pinMode(Sensor4, INPUT);
+  
+}
+
+void loop(){
+
+  
+  analogWrite(ENA, ENASpeed); // activating the determined speed.
+  analogWrite(ENB, ENBSpeed);
+
+  
+  Sensor1 = digitalRead(4); .
+  Sensor2 = digitalRead(5);
+  Sensor3 = digitalRead(6);
+  Sensor4 = digitalRead(10);
+
+ 
+
+  if(Sensor4 == LOW && Sensor3 == LOW && Sensor2 == LOW && Sensor1 == HIGH){
+
+   
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, HIGH); // determining the directions according to placement of sensors
+
+    digitalWrite(IN3, HIGH);
+    digitalWrite(IN4, LOW);
+  }
+
+  else if (Sensor4 == HIGH && Sensor3 == LOW  && Sensor2 == LOW && Sensor1 == LOW){
+
+  
+    digitalWrite(IN1, HIGH);
+    digitalWrite(IN2, LOW); 
+
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, HIGH);
+  }
+
+  else if(Sensor4 == LOW && Sensor3 == LOW && Sensor2 == HIGH && Sensor1 == LOW){
+
+ 
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, HIGH);
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, HIGH);  
+  }
+    else if(Sensor4 == LOW && Sensor3 == HIGH && Sensor2 == LOW && Sensor1 == LOW){
+
+ 
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, HIGH);
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, HIGH);  
+  }
+    else if(Sensor4 == LOW && Sensor3 == HIGH && Sensor2 == HIGH && Sensor1 == LOW){
+
+ 
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, HIGH);
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, HIGH);  
+  }
+  
+}
