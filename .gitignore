@@ -6,7 +6,6 @@ int ENB = 3;
 int IN3 = 8;
 int IN4 = 7;
 
-
 #define ENASpeed 120  // setting the speed of motors as 120
 #define ENBSpeed 120
 
